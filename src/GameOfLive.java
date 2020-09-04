@@ -6,103 +6,115 @@ public class GameOfLive {
     private static boolean[][] Spielfeld2 = new boolean[20][20];
 
 
-    private static void toad(){
+    private static void glider() {
+        Spielfeld[1][2] = true;
+        Spielfeld[2][3] = true;
+        Spielfeld[2][4] = true;
+        Spielfeld[1][4] = true;
+        Spielfeld[3][3] = true;
+
+
+    }
+
+    private static void toad() {
         Spielfeld[8][7] = true;
         Spielfeld[9][7] = true;
         Spielfeld[10][8] = true;
-        Spielfeld[9][10]= true;
-        Spielfeld[8][10]= true;
-        Spielfeld[7][9]= true;
-    }
-    private static void blinker(){
-        Spielfeld[8][9]= true;
-        Spielfeld[9][9]= true;
-        Spielfeld[10][9]= true;
-    }
-    private static void beacon(){
-        Spielfeld[11][10]= true;
-        Spielfeld[12][10]= true;
-        Spielfeld[12][9]= true;
-        Spielfeld[10][7]= true;
-        Spielfeld[9][7]= true;
-        Spielfeld[9][8]= true;
+        Spielfeld[9][10] = true;
+        Spielfeld[8][10] = true;
+        Spielfeld[7][9] = true;
     }
 
-    private static void pulsar(){
-        Spielfeld[4][2]= true;
-        Spielfeld[2][4]= true;
-        Spielfeld[2][5]= true;
-        Spielfeld[2][6]= true;
-        Spielfeld[4][7]= true;
-        Spielfeld[5][7]= true;
-        Spielfeld[6][7]= true;
-        Spielfeld[7][6]= true;
-        Spielfeld[7][5]= true;
-        Spielfeld[7][4]= true;
-        Spielfeld[6][2]= true;
-        Spielfeld[5][2]= true;
-
-        Spielfeld[4][9]= true;
-        Spielfeld[5][9]= true;
-        Spielfeld[6][9]= true;
-        Spielfeld[7][10]= true;
-        Spielfeld[7][11]= true;
-        Spielfeld[7][12]= true;
-        Spielfeld[6][14]= true;
-        Spielfeld[5][14]= true;
-        Spielfeld[4][14]= true;
-        Spielfeld[2][12]= true;
-        Spielfeld[2][11]= true;
-        Spielfeld[2][10]= true;
-
-        Spielfeld[9][4]= true;
-        Spielfeld[9][5]= true;
-        Spielfeld[9][6]= true;
-        Spielfeld[10][7]= true;
-        Spielfeld[11][7]= true;
-        Spielfeld[12][7]= true;
-        Spielfeld[14][6]= true;
-        Spielfeld[14][5]= true;
-        Spielfeld[14][4]= true;
-        Spielfeld[12][2]= true;
-        Spielfeld[11][2]= true;
-        Spielfeld[10][2]= true;
-
-        Spielfeld[9][10]= true;
-        Spielfeld[9][11]= true;
-        Spielfeld[9][12]= true;
-        Spielfeld[10][14]= true;
-        Spielfeld[11][14]= true;
-        Spielfeld[12][14]= true;
-        Spielfeld[14][12]= true;
-        Spielfeld[14][11]= true;
-        Spielfeld[14][10]= true;
-        Spielfeld[12][9]= true;
-        Spielfeld[11][9]= true;
-        Spielfeld[10][9]= true;
+    private static void blinker() {
+        Spielfeld[8][9] = true;
+        Spielfeld[9][9] = true;
+        Spielfeld[10][9] = true;
     }
 
-    private static void penta(){
-        Spielfeld[4][9]= true;
-        Spielfeld[3][9]= true;
-        Spielfeld[2][9]= true;
-        Spielfeld[4][8]= true;
-        Spielfeld[4][10]= true;
-        Spielfeld[7][9]= true;
-        Spielfeld[7][10]= true;
-        Spielfeld[7][8]= true;
-        Spielfeld[8][9]= true;
-        Spielfeld[9][9]= true;
-        Spielfeld[10][9]= true;
-        Spielfeld[11][9]= true;
-        Spielfeld[12][9]= true;
-        Spielfeld[12][8]= true;
-        Spielfeld[12][10]= true;
-        Spielfeld[15][9]= true;
-        Spielfeld[15][8]= true;
-        Spielfeld[15][10]= true;
-        Spielfeld[16][9]= true;
-        Spielfeld[17][9]= true;
+    private static void beacon() {
+        Spielfeld[11][10] = true;
+        Spielfeld[12][10] = true;
+        Spielfeld[12][9] = true;
+        Spielfeld[10][7] = true;
+        Spielfeld[9][7] = true;
+        Spielfeld[9][8] = true;
+    }
+
+    private static void pulsar() {
+        Spielfeld[4][2] = true;
+        Spielfeld[2][4] = true;
+        Spielfeld[2][5] = true;
+        Spielfeld[2][6] = true;
+        Spielfeld[4][7] = true;
+        Spielfeld[5][7] = true;
+        Spielfeld[6][7] = true;
+        Spielfeld[7][6] = true;
+        Spielfeld[7][5] = true;
+        Spielfeld[7][4] = true;
+        Spielfeld[6][2] = true;
+        Spielfeld[5][2] = true;
+
+        Spielfeld[4][9] = true;
+        Spielfeld[5][9] = true;
+        Spielfeld[6][9] = true;
+        Spielfeld[7][10] = true;
+        Spielfeld[7][11] = true;
+        Spielfeld[7][12] = true;
+        Spielfeld[6][14] = true;
+        Spielfeld[5][14] = true;
+        Spielfeld[4][14] = true;
+        Spielfeld[2][12] = true;
+        Spielfeld[2][11] = true;
+        Spielfeld[2][10] = true;
+
+        Spielfeld[9][4] = true;
+        Spielfeld[9][5] = true;
+        Spielfeld[9][6] = true;
+        Spielfeld[10][7] = true;
+        Spielfeld[11][7] = true;
+        Spielfeld[12][7] = true;
+        Spielfeld[14][6] = true;
+        Spielfeld[14][5] = true;
+        Spielfeld[14][4] = true;
+        Spielfeld[12][2] = true;
+        Spielfeld[11][2] = true;
+        Spielfeld[10][2] = true;
+
+        Spielfeld[9][10] = true;
+        Spielfeld[9][11] = true;
+        Spielfeld[9][12] = true;
+        Spielfeld[10][14] = true;
+        Spielfeld[11][14] = true;
+        Spielfeld[12][14] = true;
+        Spielfeld[14][12] = true;
+        Spielfeld[14][11] = true;
+        Spielfeld[14][10] = true;
+        Spielfeld[12][9] = true;
+        Spielfeld[11][9] = true;
+        Spielfeld[10][9] = true;
+    }
+
+    private static void penta() {
+        Spielfeld[4][9] = true;
+        Spielfeld[3][9] = true;
+        Spielfeld[2][9] = true;
+        Spielfeld[4][8] = true;
+        Spielfeld[4][10] = true;
+        Spielfeld[7][9] = true;
+        Spielfeld[7][10] = true;
+        Spielfeld[7][8] = true;
+        Spielfeld[8][9] = true;
+        Spielfeld[9][9] = true;
+        Spielfeld[10][9] = true;
+        Spielfeld[11][9] = true;
+        Spielfeld[12][9] = true;
+        Spielfeld[12][8] = true;
+        Spielfeld[12][10] = true;
+        Spielfeld[15][9] = true;
+        Spielfeld[15][8] = true;
+        Spielfeld[15][10] = true;
+        Spielfeld[16][9] = true;
+        Spielfeld[17][9] = true;
     }
 
     private static void printSpielbrett1() throws InterruptedException {
@@ -159,12 +171,12 @@ public class GameOfLive {
                     Spielfeld[row][column] = false;
 
                 }
-                if(Spielfeld2[row][column] == true && alive==2 || alive== 3){
+                if (Spielfeld2[row][column] == true && alive == 2 || alive == 3) {
                     Spielfeld[row][column] = true;
-                }else{
+                } else {
                 }
-                if(Spielfeld2[row][column]==true && alive>3){
-                    Spielfeld[row][column]= false;
+                if (Spielfeld2[row][column] == true && alive > 3) {
+                    Spielfeld[row][column] = false;
 
                 }
 
@@ -178,7 +190,6 @@ public class GameOfLive {
         }
         System.out.println("");
         System.out.println("");
-
 
 
         Thread.sleep(400);
@@ -235,14 +246,14 @@ public class GameOfLive {
                     Spielfeld2[row][column] = false;
 
                 }
-                if(Spielfeld[row][column]==true && alive==2 || alive==3){
-                    Spielfeld2[row][column]= true;
-                }else{
+                if (Spielfeld[row][column] == true && alive == 2 || alive == 3) {
+                    Spielfeld2[row][column] = true;
+                } else {
                 }
-                if(Spielfeld[row][column]==true && alive>3){
-                    Spielfeld2[row][column]= false;
+                if (Spielfeld[row][column] == true && alive > 3) {
+                    Spielfeld2[row][column] = false;
 
-                }else{
+                } else {
                 }
 
 
@@ -259,61 +270,69 @@ public class GameOfLive {
 
     }
 
-        public static void main (String[]args) throws InterruptedException {
-            String Antwort;
-            int gen = 0;
-            Scanner Tastatur= new Scanner(System.in);
+    public static void main(String[] args) throws InterruptedException {
+        String Antwort;
+        int gen = 0;
+        Scanner Tastatur = new Scanner(System.in);
 
-            System.out.println("Welche Figur soll abgespielt werden?");
-            System.out.println("Blinker - B");
-            System.out.println("Toad - T");
-            System.out.println("Beacon - Be");
-            System.out.println("Pulsar - P");
-            System.out.println("Pentadecathlon - Pe");
-            Antwort=Tastatur.next();
+        System.out.println("Welche Figur soll abgespielt werden?");
+        System.out.println("Blinker - B");
+        System.out.println("Toad - T");
+        System.out.println("Beacon - Be");
+        System.out.println("Pulsar - P");
+        System.out.println("Pentadecathlon - Pe");
+        System.out.println("Glider - G");
+        Antwort = Tastatur.next();
 
 
-            if(Antwort.equals("B")||Antwort.equals("b")) {
+        if (Antwort.equals("B") || Antwort.equals("b")) {
+            while (gen <= 10) {
+                blinker();
+                printSpielbrett1();
+                gen++;
+            }
+        } else {
+            if (Antwort.equals("Be") || Antwort.equals("be")) {
                 while (gen <= 10) {
-                    blinker();
+                    beacon();
                     printSpielbrett1();
                     gen++;
                 }
-            }else{
-                if(Antwort.equals("Be") || Antwort.equals("be")){
+            } else {
+                if (Antwort.equals("P") || Antwort.equals("p")) {
                     while (gen <= 10) {
-                        beacon();
+                        pulsar();
                         printSpielbrett1();
                         gen++;
                     }
-                }else{
-                    if(Antwort.equals("P")||Antwort.equals("p")){
+                } else {
+                    if (Antwort.equals("Pe") || Antwort.equals("pe")) {
                         while (gen <= 10) {
-                            pulsar();
+                            penta();
                             printSpielbrett1();
                             gen++;
                         }
-                    }else{
-                        if(Antwort.equals("Pe")||Antwort.equals("pe")){
+                    } else {
+                        if (Antwort.equals("T") || Antwort.equals("t")) {
                             while (gen <= 10) {
-                                penta();
+                                toad();
                                 printSpielbrett1();
                                 gen++;
                             }
-                        }else{
-                            if(Antwort.equals("T")||Antwort.equals("t")) {
+                        } else {
+                            if (Antwort.equals("G") || Antwort.equals("g")) {
                                 while (gen <= 10) {
-                                    toad();
+                                    glider();
                                     printSpielbrett1();
                                     gen++;
                                 }
-                            }else{
-                            }
                             }
                         }
                     }
                 }
             }
         }
+    }
+}
 
 
