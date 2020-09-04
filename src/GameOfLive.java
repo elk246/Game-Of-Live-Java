@@ -108,7 +108,7 @@ public class GameOfLive {
     private static void printSpielbrett1() throws InterruptedException {
         Thread.sleep(400);
         for (int row = 0; row < Spielfeld.length; row++) {
-
+int a=0;
             System.out.println("");
 
             for (int column = 0; column < Spielfeld2[row].length; column++) {
