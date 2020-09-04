@@ -10,6 +10,7 @@ public class Glider {
         Spielfeld[4][6] = true;
         Spielfeld[3][6] = true;
         Spielfeld[5][5] = true;
+        int a=0;
     }
 
     private static void printSpielbrett1() throws InterruptedException {
