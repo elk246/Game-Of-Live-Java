@@ -10,19 +10,50 @@ public class Glider {
         Spielfeld[4][6] = true;
         Spielfeld[3][6] = true;
         Spielfeld[5][5] = true;
-        int a=0;
+
     }
 
     private static void printSpielbrett1() throws InterruptedException {
         int alive=0;
+        Spielfeld2=Spielfeld;
         for(int row=0; row<Spielfeld2.length; row++){
             for(int column=0; column<Spielfeld2[row].length; column++){
-                try{
-                if(Spielfeld2[row][column+1]){
-                    alive++;
-                }else{
+                try {
+                    if (Spielfeld2[row][column + 1] == true) {
+                        alive++;
+                    } else {
+                    }
+                    if (Spielfeld2[row][column - 1] == true) {
+                        alive++;
+                    } else {
+                    }
+                    if (Spielfeld2[row + 1][column] == true) {
+                        alive++;
+                    } else {
+                    }
+                    if (Spielfeld2[row - 1][column] == true) {
+                        alive++;
+                    } else {
+                    }
+                    if (Spielfeld2[row - 1][column - 1] == true) {
+                        alive++;
+                    } else {
+                    }
+                    if (Spielfeld2[row - 1][column - 1] == true) {
+                        alive++;
+                    } else {
+                    }
+                    if (Spielfeld2[row + 1][column - 1] == true) {
+                        alive++;
+                    } else {
+                    }
+                    if (Spielfeld2[row + 1][column + 1] == true) {
+                        alive++;
+                    } else {
+                    }
+                }catch(Exception e){
                 }
-            }
+                
 
 
         }
