@@ -1,4 +1,5 @@
 import java.awt.font.ShapeGraphicAttribute;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class GameOfLive<Spielfeld> {
@@ -6,26 +7,12 @@ public class GameOfLive<Spielfeld> {
     private static boolean[][] Gameboard = new boolean[20][20];
     private static boolean[][] Gameboard2 = new boolean[20][20];
 
-
-    private static void stripe(){
-        Gameboard[10][4]=true;
-        Gameboard[10][5]=true;
-        Gameboard[10][6]=true;
-        Gameboard[10][7]=true;
-        Gameboard[10][8]=true;
-        Gameboard[10][9]=true;
-        Gameboard[10][10]=true;
-        Gameboard[10][11]=true;
-        Gameboard[10][12]=true;
-    }
     private static void glider() {
         Gameboard[1][2] = true;
         Gameboard[2][3] = true;
         Gameboard[2][4] = true;
         Gameboard[1][4] = true;
         Gameboard[3][3] = true;
-
-
     }
     private static void toad() {
         Gameboard[8][7] = true;
@@ -35,13 +22,11 @@ public class GameOfLive<Spielfeld> {
         Gameboard[8][10] = true;
         Gameboard[7][9] = true;
     }
-
     private static void blinker() {
         Gameboard[8][9] = true;
         Gameboard[9][9] = true;
         Gameboard[10][9] = true;
     }
-
     private static void beacon() {
         Gameboard[11][10] = true;
         Gameboard[12][10] = true;
@@ -50,7 +35,6 @@ public class GameOfLive<Spielfeld> {
         Gameboard[9][7] = true;
         Gameboard[9][8] = true;
     }
-
     private static void pulsar() {
         Gameboard[4][2] = true;
         Gameboard[2][4] = true;
@@ -77,7 +61,6 @@ public class GameOfLive<Spielfeld> {
         Gameboard[2][12] = true;
         Gameboard[2][11] = true;
         Gameboard[2][10] = true;
-
         Gameboard[9][4] = true;
         Gameboard[9][5] = true;
         Gameboard[9][6] = true;
@@ -103,7 +86,6 @@ public class GameOfLive<Spielfeld> {
         Gameboard[11][9] = true;
         Gameboard[10][9] = true;
     }
-
     private static void penta() {
         Gameboard[4][9] = true;
         Gameboard[3][9] = true;
@@ -126,6 +108,40 @@ public class GameOfLive<Spielfeld> {
         Gameboard[16][9] = true;
         Gameboard[17][9] = true;
     }
+    private static void Spaceship(){
+
+        Gameboard[7][2] = true;
+        Gameboard[5][2] = true;
+        Gameboard[4][3] = true;
+        Gameboard[4][4] = true;
+        Gameboard[4][5] = true;
+        Gameboard[4][6] = true;
+        Gameboard[5][6] = true;
+        Gameboard[6][6] = true;
+        Gameboard[7][5] = true;
+
+    }
+
+    private static void printfirstGeneration(){
+
+        for (int row = 0; row < Gameboard.length; row++) {
+
+            System.out.println("");
+
+            for (int column = 0; column < Gameboard[row].length; column++) {
+
+                if (Gameboard[row][column] == true) {
+                    System.out.print(" @ ");
+                } else {
+                    System.out.print(" . ");
+                }
+
+            }
+        }
+        System.out.println("");
+
+    }
+
 
     private static void printGame() throws InterruptedException {
         int a = 0;
@@ -195,7 +211,7 @@ public class GameOfLive<Spielfeld> {
                     }
 
 
-                    //Prüfung ob Zelle auf true oder false gesetzt ist, um Zeichen auszugeben.
+                    //Ceck the cell (alive or dead?)
                     if (Gameboard2[row][column] == true) {
                         System.out.print(" @ ");
                     } else {
@@ -231,35 +247,43 @@ public class GameOfLive<Spielfeld> {
         System.out.println("Pulsar - P");
         System.out.println("Pentadecathlon - Pe");
         System.out.println("Glider - G");
+        System.out.println("Spaceship - S");
         Antwort = Tastatur.next();
 
 
         if (Antwort.equals("B") || Antwort.equals("b")) {
                 blinker();
+                printfirstGeneration();
                 printGame();
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
                     beacon();
+                    printfirstGeneration();
                     printGame();
             } else {
                 if (Antwort.equals("P") || Antwort.equals("p")) {
                         pulsar();
+                        printfirstGeneration();
                         printGame();
                 } else {
                     if (Antwort.equals("Pe") || Antwort.equals("pe")) {
                             penta();
+                            printfirstGeneration();
                             printGame();
                     } else {
                         if (Antwort.equals("T") || Antwort.equals("t")) {
                                 toad();
+                                printfirstGeneration();
                                 printGame();
                         } else {
                             if (Antwort.equals("G") || Antwort.equals("g")) {
-                                    glider();
-                                    printGame();
+                                glider();
+                                printfirstGeneration();
+                                printGame();
                                 }else{
                                     if(Antwort.equals("S")|| Antwort.equals("s")) {
-                                            stripe();
+                                            Spaceship();
+                                            printfirstGeneration();
                                             printGame();
                                     }else{
                                     }
