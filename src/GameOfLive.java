@@ -2,31 +2,13 @@ import java.awt.font.ShapeGraphicAttribute;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class GameOfLive<Spielfeld> {
+public class GameOfLive{
 
     private static boolean[][] Gameboard = new boolean[20][20];
     private static boolean[][] Gameboard2 = new boolean[20][20];
 
-    private static void glider() {
-        Gameboard[1][2] = true;
-        Gameboard[2][3] = true;
-        Gameboard[2][4] = true;
-        Gameboard[1][4] = true;
-        Gameboard[3][3] = true;
-    }
-    private static void toad() {
-        Gameboard[8][7] = true;
-        Gameboard[9][7] = true;
-        Gameboard[10][8] = true;
-        Gameboard[9][10] = true;
-        Gameboard[8][10] = true;
-        Gameboard[7][9] = true;
-    }
-    private static void blinker() {
-        Gameboard[8][9] = true;
-        Gameboard[9][9] = true;
-        Gameboard[10][9] = true;
-    }
+
+
     private static void beacon() {
         Gameboard[11][10] = true;
         Gameboard[12][10] = true;
@@ -121,6 +103,16 @@ public class GameOfLive<Spielfeld> {
         Gameboard[7][5] = true;
 
     }
+    private  void Pentomino(){
+        Gameboard[7][4]= true;
+        Gameboard[7][5]= true;
+        Gameboard[8][5]= true;
+        Gameboard[6][5]= true;
+        Gameboard[6][6]= true;
+    }
+    public void setAlive (int x, int y) {
+        Gameboard[x][y]=true;
+    }
 
     private static void printfirstGeneration(){
 
@@ -135,7 +127,6 @@ public class GameOfLive<Spielfeld> {
                 } else {
                     System.out.print(" . ");
                 }
-
             }
         }
         System.out.println("");
@@ -148,15 +139,15 @@ public class GameOfLive<Spielfeld> {
 
         while (a == 0) {
 
-            Thread.sleep(400);
-            for (int row = 0; row < Gameboard.length; row++) {
+            Thread.sleep(500);
+            for (int row = 0; row < Gameboard.length - 1; row++) {
 
                 System.out.println("");
 
-                for (int column = 0; column < Gameboard[row].length; column++) {
+                for (int column = 0; column < Gameboard[row].length - 1; column++) {
                     int alive = 0;
                     try {
-                        //Prüfung ob lebende Nachbarzelle, wenn ja dann Counter + 1
+                        //Check neighbour (alive or dead?)// Count alive
                         if (Gameboard[row][column + 1] == true) {
                             alive++;
                         } else {
@@ -190,8 +181,9 @@ public class GameOfLive<Spielfeld> {
                         } else {
                         }
                     } catch (Exception e) {
-                        System.out.print("");
+
                     }
+                    //Check the rules
                     if (Gameboard[row][column] == false && alive == 3) {
                         Gameboard2[row][column] = true;
 
@@ -222,6 +214,7 @@ public class GameOfLive<Spielfeld> {
             System.out.println("");
 
 
+            // Cell output (alive or dead?)
             for (int row = 0; row < Gameboard.length; row++) {
                 for (int column = 0; column < Gameboard[row].length; column++) {
 
@@ -236,7 +229,11 @@ public class GameOfLive<Spielfeld> {
 
         }
     }
-    public static void main(String[] args) throws InterruptedException {
+
+
+
+    public static  void main(String[] args) throws InterruptedException {
+        GameOfLive game = new GameOfLive();
         String Antwort;
         Scanner Tastatur = new Scanner(System.in);
 
@@ -252,7 +249,8 @@ public class GameOfLive<Spielfeld> {
 
 
         if (Antwort.equals("B") || Antwort.equals("b")) {
-                blinker();
+                Blinker newBlinker= new Blinker();
+                newBlinker.setAlive(game);
                 printfirstGeneration();
                 printGame();
         } else {
@@ -272,12 +270,15 @@ public class GameOfLive<Spielfeld> {
                             printGame();
                     } else {
                         if (Antwort.equals("T") || Antwort.equals("t")) {
-                                toad();
+                                Toad newToad= new Toad();
+                                newToad.setAlive(game);
                                 printfirstGeneration();
                                 printGame();
                         } else {
                             if (Antwort.equals("G") || Antwort.equals("g")) {
-                                glider();
+
+                                Glider newGlider= new Glider();
+                                newGlider.setAlive(game);
                                 printfirstGeneration();
                                 printGame();
                                 }else{
