@@ -237,44 +237,30 @@ public class GameOfLive<Spielfeld> {
         if (Antwort.equals("B") || Antwort.equals("b")) {
                 blinker();
                 printGame();
-
-
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
                     beacon();
                     printGame();
-
-
             } else {
                 if (Antwort.equals("P") || Antwort.equals("p")) {
                         pulsar();
                         printGame();
-
-
                 } else {
                     if (Antwort.equals("Pe") || Antwort.equals("pe")) {
                             penta();
                             printGame();
-
-
                     } else {
                         if (Antwort.equals("T") || Antwort.equals("t")) {
                                 toad();
                                 printGame();
-
-
                         } else {
                             if (Antwort.equals("G") || Antwort.equals("g")) {
                                     glider();
                                     printGame();
-
-
                                 }else{
                                     if(Antwort.equals("S")|| Antwort.equals("s")) {
                                             stripe();
                                             printGame();
-
-
                                     }else{
                                     }
                                 }
