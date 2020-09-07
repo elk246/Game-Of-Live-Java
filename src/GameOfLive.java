@@ -1,278 +1,227 @@
+import java.awt.font.ShapeGraphicAttribute;
 import java.util.Scanner;
 
-public class GameOfLive {
+public class GameOfLive<Spielfeld> {
 
-    private static boolean[][] Spielfeld = new boolean[20][20];
-    private static boolean[][] Spielfeld2 = new boolean[20][20];
+    private static boolean[][] Gameboard = new boolean[20][20];
+    private static boolean[][] Gameboard2 = new boolean[20][20];
 
 
+    private static void stripe(){
+        Gameboard[10][4]=true;
+        Gameboard[10][5]=true;
+        Gameboard[10][6]=true;
+        Gameboard[10][7]=true;
+        Gameboard[10][8]=true;
+        Gameboard[10][9]=true;
+        Gameboard[10][10]=true;
+        Gameboard[10][11]=true;
+        Gameboard[10][12]=true;
+    }
     private static void glider() {
-        Spielfeld[1][2] = true;
-        Spielfeld[2][3] = true;
-        Spielfeld[2][4] = true;
-        Spielfeld[1][4] = true;
-        Spielfeld[3][3] = true;
+        Gameboard[1][2] = true;
+        Gameboard[2][3] = true;
+        Gameboard[2][4] = true;
+        Gameboard[1][4] = true;
+        Gameboard[3][3] = true;
 
 
     }
-
     private static void toad() {
-        Spielfeld[8][7] = true;
-        Spielfeld[9][7] = true;
-        Spielfeld[10][8] = true;
-        Spielfeld[9][10] = true;
-        Spielfeld[8][10] = true;
-        Spielfeld[7][9] = true;
+        Gameboard[8][7] = true;
+        Gameboard[9][7] = true;
+        Gameboard[10][8] = true;
+        Gameboard[9][10] = true;
+        Gameboard[8][10] = true;
+        Gameboard[7][9] = true;
     }
 
     private static void blinker() {
-        Spielfeld[8][9] = true;
-        Spielfeld[9][9] = true;
-        Spielfeld[10][9] = true;
+        Gameboard[8][9] = true;
+        Gameboard[9][9] = true;
+        Gameboard[10][9] = true;
     }
 
     private static void beacon() {
-        Spielfeld[11][10] = true;
-        Spielfeld[12][10] = true;
-        Spielfeld[12][9] = true;
-        Spielfeld[10][7] = true;
-        Spielfeld[9][7] = true;
-        Spielfeld[9][8] = true;
+        Gameboard[11][10] = true;
+        Gameboard[12][10] = true;
+        Gameboard[12][9] = true;
+        Gameboard[10][7] = true;
+        Gameboard[9][7] = true;
+        Gameboard[9][8] = true;
     }
 
     private static void pulsar() {
-        Spielfeld[4][2] = true;
-        Spielfeld[2][4] = true;
-        Spielfeld[2][5] = true;
-        Spielfeld[2][6] = true;
-        Spielfeld[4][7] = true;
-        Spielfeld[5][7] = true;
-        Spielfeld[6][7] = true;
-        Spielfeld[7][6] = true;
-        Spielfeld[7][5] = true;
-        Spielfeld[7][4] = true;
-        Spielfeld[6][2] = true;
-        Spielfeld[5][2] = true;
+        Gameboard[4][2] = true;
+        Gameboard[2][4] = true;
+        Gameboard[2][5] = true;
+        Gameboard[2][6] = true;
+        Gameboard[4][7] = true;
+        Gameboard[5][7] = true;
+        Gameboard[6][7] = true;
+        Gameboard[7][6] = true;
+        Gameboard[7][5] = true;
+        Gameboard[7][4] = true;
+        Gameboard[6][2] = true;
+        Gameboard[5][2] = true;
 
-        Spielfeld[4][9] = true;
-        Spielfeld[5][9] = true;
-        Spielfeld[6][9] = true;
-        Spielfeld[7][10] = true;
-        Spielfeld[7][11] = true;
-        Spielfeld[7][12] = true;
-        Spielfeld[6][14] = true;
-        Spielfeld[5][14] = true;
-        Spielfeld[4][14] = true;
-        Spielfeld[2][12] = true;
-        Spielfeld[2][11] = true;
-        Spielfeld[2][10] = true;
+        Gameboard[4][9] = true;
+        Gameboard[5][9] = true;
+        Gameboard[6][9] = true;
+        Gameboard[7][10] = true;
+        Gameboard[7][11] = true;
+        Gameboard[7][12] = true;
+        Gameboard[6][14] = true;
+        Gameboard[5][14] = true;
+        Gameboard[4][14] = true;
+        Gameboard[2][12] = true;
+        Gameboard[2][11] = true;
+        Gameboard[2][10] = true;
 
-        Spielfeld[9][4] = true;
-        Spielfeld[9][5] = true;
-        Spielfeld[9][6] = true;
-        Spielfeld[10][7] = true;
-        Spielfeld[11][7] = true;
-        Spielfeld[12][7] = true;
-        Spielfeld[14][6] = true;
-        Spielfeld[14][5] = true;
-        Spielfeld[14][4] = true;
-        Spielfeld[12][2] = true;
-        Spielfeld[11][2] = true;
-        Spielfeld[10][2] = true;
-
-        Spielfeld[9][10] = true;
-        Spielfeld[9][11] = true;
-        Spielfeld[9][12] = true;
-        Spielfeld[10][14] = true;
-        Spielfeld[11][14] = true;
-        Spielfeld[12][14] = true;
-        Spielfeld[14][12] = true;
-        Spielfeld[14][11] = true;
-        Spielfeld[14][10] = true;
-        Spielfeld[12][9] = true;
-        Spielfeld[11][9] = true;
-        Spielfeld[10][9] = true;
+        Gameboard[9][4] = true;
+        Gameboard[9][5] = true;
+        Gameboard[9][6] = true;
+        Gameboard[10][7] = true;
+        Gameboard[11][7] = true;
+        Gameboard[12][7] = true;
+        Gameboard[14][6] = true;
+        Gameboard[14][5] = true;
+        Gameboard[14][4] = true;
+        Gameboard[12][2] = true;
+        Gameboard[11][2] = true;
+        Gameboard[10][2] = true;
+        Gameboard[9][10] = true;
+        Gameboard[9][11] = true;
+        Gameboard[9][12] = true;
+        Gameboard[10][14] = true;
+        Gameboard[11][14] = true;
+        Gameboard[12][14] = true;
+        Gameboard[14][12] = true;
+        Gameboard[14][11] = true;
+        Gameboard[14][10] = true;
+        Gameboard[12][9] = true;
+        Gameboard[11][9] = true;
+        Gameboard[10][9] = true;
     }
 
     private static void penta() {
-        Spielfeld[4][9] = true;
-        Spielfeld[3][9] = true;
-        Spielfeld[2][9] = true;
-        Spielfeld[4][8] = true;
-        Spielfeld[4][10] = true;
-        Spielfeld[7][9] = true;
-        Spielfeld[7][10] = true;
-        Spielfeld[7][8] = true;
-        Spielfeld[8][9] = true;
-        Spielfeld[9][9] = true;
-        Spielfeld[10][9] = true;
-        Spielfeld[11][9] = true;
-        Spielfeld[12][9] = true;
-        Spielfeld[12][8] = true;
-        Spielfeld[12][10] = true;
-        Spielfeld[15][9] = true;
-        Spielfeld[15][8] = true;
-        Spielfeld[15][10] = true;
-        Spielfeld[16][9] = true;
-        Spielfeld[17][9] = true;
+        Gameboard[4][9] = true;
+        Gameboard[3][9] = true;
+        Gameboard[2][9] = true;
+        Gameboard[4][8] = true;
+        Gameboard[4][10] = true;
+        Gameboard[7][9] = true;
+        Gameboard[7][10] = true;
+        Gameboard[7][8] = true;
+        Gameboard[8][9] = true;
+        Gameboard[9][9] = true;
+        Gameboard[10][9] = true;
+        Gameboard[11][9] = true;
+        Gameboard[12][9] = true;
+        Gameboard[12][8] = true;
+        Gameboard[12][10] = true;
+        Gameboard[15][9] = true;
+        Gameboard[15][8] = true;
+        Gameboard[15][10] = true;
+        Gameboard[16][9] = true;
+        Gameboard[17][9] = true;
     }
 
-    private static void printSpielbrett1() throws InterruptedException {
-        Thread.sleep(400);
-        for (int row = 0; row < Spielfeld.length; row++) {
+    private static void printGame() throws InterruptedException {
+        int a = 0;
 
-            System.out.println("");
+        while (a == 0) {
 
-            for (int column = 0; column < Spielfeld2[row].length; column++) {
-                int alive = 0;
-                try {
-                    //Prüfung ob lebende Nachbarzelle, wenn ja dann Counter + 1
-                    if (Spielfeld2[row][column + 1] == true) {
-                        alive++;
+            Thread.sleep(400);
+            for (int row = 0; row < Gameboard.length; row++) {
+
+                System.out.println("");
+
+                for (int column = 0; column < Gameboard[row].length; column++) {
+                    int alive = 0;
+                    try {
+                        //Prüfung ob lebende Nachbarzelle, wenn ja dann Counter + 1
+                        if (Gameboard[row][column + 1] == true) {
+                            alive++;
+                        } else {
+                        }
+                        if (Gameboard[row][column - 1] == true) {
+                            alive++;
+                        } else {
+                        }
+                        if (Gameboard[row + 1][column] == true) {
+                            alive++;
+                        } else {
+                        }
+                        if (Gameboard[row - 1][column] == true) {
+                            alive++;
+                        } else {
+                        }
+                        if (Gameboard[row - 1][column + 1] == true) {
+                            alive++;
+                        } else {
+                        }
+                        if (Gameboard[row - 1][column - 1] == true) {
+                            alive++;
+                        } else {
+                        }
+                        if (Gameboard[row + 1][column - 1] == true) {
+                            alive++;
+                        } else {
+                        }
+                        if (Gameboard[row + 1][column + 1] == true) {
+                            alive++;
+                        } else {
+                        }
+                    } catch (Exception e) {
+                        System.out.print("");
+                    }
+                    if (Gameboard[row][column] == false && alive == 3) {
+                        Gameboard2[row][column] = true;
+
                     } else {
                     }
-                    if (Spielfeld2[row][column - 1] == true) {
-                        alive++;
+                    if (Gameboard[row][column] == true && alive < 2) {
+                        Gameboard2[row][column] = false;
+
+                    }
+                    if (Gameboard[row][column] == true && alive == 2 || alive == 3) {
+                        Gameboard2[row][column] = true;
                     } else {
                     }
-                    if (Spielfeld2[row + 1][column] == true) {
-                        alive++;
+                    if (Gameboard[row][column] == true && alive > 3) {
+                        Gameboard2[row][column] = false;
                     } else {
                     }
-                    if (Spielfeld2[row - 1][column] == true) {
-                        alive++;
+
+
+                    //Prüfung ob Zelle auf true oder false gesetzt ist, um Zeichen auszugeben.
+                    if (Gameboard2[row][column] == true) {
+                        System.out.print(" @ ");
                     } else {
+                        System.out.print(" . ");
                     }
-                    if (Spielfeld2[row - 1][column + 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld2[row - 1][column - 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld2[row + 1][column - 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld2[row + 1][column + 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                } catch (Exception e) {
-                    System.out.print("");
-                }
-                if (Spielfeld2[row][column] == false && alive == 3) {
-                    Spielfeld[row][column] = true;
-
-                } else {
-                }
-                if (Spielfeld2[row][column] == true && alive < 2) {
-                    Spielfeld[row][column] = false;
-
-                }
-                if (Spielfeld2[row][column] == true && alive == 2 || alive == 3) {
-                    Spielfeld[row][column] = true;
-                } else {
-                }
-                if (Spielfeld2[row][column] == true && alive > 3) {
-                    Spielfeld[row][column] = false;
-
-                }
-
-                //Prüfung ob Zelle auf true oder false gesetzt ist, um Zeichen auszugeben.
-                if (Spielfeld[row][column] == true) {
-                    System.out.print(" @ ");
-                } else {
-                    System.out.print(" . ");
-                }
-            }
-        }
-        System.out.println("");
-        System.out.println("");
-
-
-        Thread.sleep(400);
-        for (int row = 0; row < Spielfeld2.length; row++) {
-            System.out.println("");
-            for (int column = 0; column < Spielfeld2[row].length; column++) {
-                int alive = 0;
-
-                try {
-                    //Prüfung ob lebende Nachbarzelle, wenn ja dann Counter + 1
-                    if (Spielfeld[row][column + 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld[row][column - 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld[row + 1][column] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld[row - 1][column] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld[row - 1][column + 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld[row - 1][column - 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld[row + 1][column - 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                    if (Spielfeld[row + 1][column + 1] == true) {
-                        alive++;
-                    } else {
-                    }
-                } catch (Exception e) {
-
-                }
-
-
-                if (Spielfeld[row][column] == false && alive == 3) {
-                    Spielfeld2[row][column] = true;
-
-                } else {
-                }
-                if (Spielfeld[row][column] == true && alive < 2) {
-                    Spielfeld2[row][column] = false;
-
-                }
-                if (Spielfeld[row][column] == true && alive == 2 || alive == 3) {
-                    Spielfeld2[row][column] = true;
-                } else {
-                }
-                if (Spielfeld[row][column] == true && alive > 3) {
-                    Spielfeld2[row][column] = false;
-
-                } else {
-                }
-
-
-                //Prüfung ob Zelle auf true oder false gesetzt ist, um Zeichen auszugeben.
-                if (Spielfeld2[row][column] == true) {
-                    System.out.print(" @ ");
-                } else {
-                    System.out.print(" . ");
                 }
             }
+            System.out.println("");
+
+
+            for (int row = 0; row < Gameboard.length; row++) {
+                for (int column = 0; column < Gameboard[row].length; column++) {
+
+                    if(Gameboard2[row][column]==true){
+                        Gameboard[row][column]=true;
+                    }else{
+                        Gameboard[row][column]=false;
+                    }
+
+                }
+            }
+
         }
-        System.out.println("");
-
-
     }
-
     public static void main(String[] args) throws InterruptedException {
         String Antwort;
-        int gen = 0;
         Scanner Tastatur = new Scanner(System.in);
 
         System.out.println("Welche Figur soll abgespielt werden?");
@@ -286,45 +235,48 @@ public class GameOfLive {
 
 
         if (Antwort.equals("B") || Antwort.equals("b")) {
-            while (gen <= 10) {
                 blinker();
-                printSpielbrett1();
-                gen++;
-            }
+                printGame();
+
+
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
-                while (gen <= 10) {
                     beacon();
-                    printSpielbrett1();
-                    gen++;
-                }
+                    printGame();
+
+
             } else {
                 if (Antwort.equals("P") || Antwort.equals("p")) {
-                    while (gen <= 10) {
                         pulsar();
-                        printSpielbrett1();
-                        gen++;
-                    }
+                        printGame();
+
+
                 } else {
                     if (Antwort.equals("Pe") || Antwort.equals("pe")) {
-                        while (gen <= 10) {
                             penta();
-                            printSpielbrett1();
-                            gen++;
-                        }
+                            printGame();
+
+
                     } else {
                         if (Antwort.equals("T") || Antwort.equals("t")) {
-                            while (gen <= 10) {
                                 toad();
-                                printSpielbrett1();
-                                gen++;
-                            }
+                                printGame();
+
+
                         } else {
                             if (Antwort.equals("G") || Antwort.equals("g")) {
-                                while (gen <= 10) {
                                     glider();
-                                    printSpielbrett1();
-                                    gen++;
+                                    printGame();
+
+
+                                }else{
+                                    if(Antwort.equals("S")|| Antwort.equals("s")) {
+                                            stripe();
+                                            printGame();
+
+
+                                    }else{
+                                    }
                                 }
                             }
                         }
@@ -333,6 +285,6 @@ public class GameOfLive {
             }
         }
     }
-}
+
 
 
