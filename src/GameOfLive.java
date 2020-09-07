@@ -9,14 +9,7 @@ public class GameOfLive{
 
 
 
-    private static void beacon() {
-        Gameboard[11][10] = true;
-        Gameboard[12][10] = true;
-        Gameboard[12][9] = true;
-        Gameboard[10][7] = true;
-        Gameboard[9][7] = true;
-        Gameboard[9][8] = true;
-    }
+
     private static void pulsar() {
         Gameboard[4][2] = true;
         Gameboard[2][4] = true;
@@ -103,13 +96,7 @@ public class GameOfLive{
         Gameboard[7][5] = true;
 
     }
-    private  void Pentomino(){
-        Gameboard[7][4]= true;
-        Gameboard[7][5]= true;
-        Gameboard[8][5]= true;
-        Gameboard[6][5]= true;
-        Gameboard[6][6]= true;
-    }
+    
     public void setAlive (int x, int y) {
         Gameboard[x][y]=true;
     }
@@ -255,7 +242,8 @@ public class GameOfLive{
                 printGame();
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
-                    beacon();
+                    Beacon newBeacon= new Beacon();
+                    newBeacon.setAlive(game);
                     printfirstGeneration();
                     printGame();
             } else {
