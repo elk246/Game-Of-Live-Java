@@ -7,96 +7,6 @@ public class GameOfLive{
     private static boolean[][] Gameboard = new boolean[20][20];
     private static boolean[][] Gameboard2 = new boolean[20][20];
 
-
-
-
-    private static void pulsar() {
-        Gameboard[4][2] = true;
-        Gameboard[2][4] = true;
-        Gameboard[2][5] = true;
-        Gameboard[2][6] = true;
-        Gameboard[4][7] = true;
-        Gameboard[5][7] = true;
-        Gameboard[6][7] = true;
-        Gameboard[7][6] = true;
-        Gameboard[7][5] = true;
-        Gameboard[7][4] = true;
-        Gameboard[6][2] = true;
-        Gameboard[5][2] = true;
-
-        Gameboard[4][9] = true;
-        Gameboard[5][9] = true;
-        Gameboard[6][9] = true;
-        Gameboard[7][10] = true;
-        Gameboard[7][11] = true;
-        Gameboard[7][12] = true;
-        Gameboard[6][14] = true;
-        Gameboard[5][14] = true;
-        Gameboard[4][14] = true;
-        Gameboard[2][12] = true;
-        Gameboard[2][11] = true;
-        Gameboard[2][10] = true;
-        Gameboard[9][4] = true;
-        Gameboard[9][5] = true;
-        Gameboard[9][6] = true;
-        Gameboard[10][7] = true;
-        Gameboard[11][7] = true;
-        Gameboard[12][7] = true;
-        Gameboard[14][6] = true;
-        Gameboard[14][5] = true;
-        Gameboard[14][4] = true;
-        Gameboard[12][2] = true;
-        Gameboard[11][2] = true;
-        Gameboard[10][2] = true;
-        Gameboard[9][10] = true;
-        Gameboard[9][11] = true;
-        Gameboard[9][12] = true;
-        Gameboard[10][14] = true;
-        Gameboard[11][14] = true;
-        Gameboard[12][14] = true;
-        Gameboard[14][12] = true;
-        Gameboard[14][11] = true;
-        Gameboard[14][10] = true;
-        Gameboard[12][9] = true;
-        Gameboard[11][9] = true;
-        Gameboard[10][9] = true;
-    }
-    private static void penta() {
-        Gameboard[4][9] = true;
-        Gameboard[3][9] = true;
-        Gameboard[2][9] = true;
-        Gameboard[4][8] = true;
-        Gameboard[4][10] = true;
-        Gameboard[7][9] = true;
-        Gameboard[7][10] = true;
-        Gameboard[7][8] = true;
-        Gameboard[8][9] = true;
-        Gameboard[9][9] = true;
-        Gameboard[10][9] = true;
-        Gameboard[11][9] = true;
-        Gameboard[12][9] = true;
-        Gameboard[12][8] = true;
-        Gameboard[12][10] = true;
-        Gameboard[15][9] = true;
-        Gameboard[15][8] = true;
-        Gameboard[15][10] = true;
-        Gameboard[16][9] = true;
-        Gameboard[17][9] = true;
-    }
-    private static void Spaceship(){
-
-        Gameboard[7][2] = true;
-        Gameboard[5][2] = true;
-        Gameboard[4][3] = true;
-        Gameboard[4][4] = true;
-        Gameboard[4][5] = true;
-        Gameboard[4][6] = true;
-        Gameboard[5][6] = true;
-        Gameboard[6][6] = true;
-        Gameboard[7][5] = true;
-
-    }
-    
     public void setAlive (int x, int y) {
         Gameboard[x][y]=true;
     }
@@ -248,12 +158,14 @@ public class GameOfLive{
                     printGame();
             } else {
                 if (Antwort.equals("P") || Antwort.equals("p")) {
-                        pulsar();
+                        Pulsar newPulsar= new Pulsar();
+                        newPulsar.setAlive(game);
                         printfirstGeneration();
                         printGame();
                 } else {
                     if (Antwort.equals("Pe") || Antwort.equals("pe")) {
-                            penta();
+                            Penta newPenta= new Penta();
+                            newPenta.setAlive(game);
                             printfirstGeneration();
                             printGame();
                     } else {
@@ -271,7 +183,8 @@ public class GameOfLive{
                                 printGame();
                                 }else{
                                     if(Antwort.equals("S")|| Antwort.equals("s")) {
-                                            Spaceship();
+                                            Spaceship newSpaceship= new Spaceship();
+                                            newSpaceship.setAlive(game);
                                             printfirstGeneration();
                                             printGame();
                                     }else{
