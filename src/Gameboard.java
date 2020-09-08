@@ -33,12 +33,12 @@ public class Gameboard  {
         while (a == 0) {
 
 
-            Thread.sleep(500);
-            for (int row = 0; row < gameboard.length -1  ; row++) {
+            Thread.sleep(200);
+            for (int row = 0; row <= gameboard.length -1  ; row++) {
 
                 System.out.println("");
 
-                for (int column = 0; column < gameboard[row].length -1 ; column++) {
+                for (int column = 0; column <= gameboard[row].length -1 ; column++) {
                     int alive = 0;
 
                     try {
@@ -46,67 +46,105 @@ public class Gameboard  {
                         //Check neighbour (alive or dead?)// Count alive
                         if (gameboard[row][column + 1] == true) {
                             alive++;
-                        } else {
                         }
 
-                    }catch (Exception e){
+                    } catch (Exception e) {
 
+                        if(gameboard[row][0]== true){
+                            alive++;
+                        }
                     }
-
                     try{
-
                         if (gameboard[row][column - 1] == true) {
                             alive++;
-                        } else {
                         }
 
-                    }catch (Exception e) {
-
+                    } catch (Exception e) {
+                        if(gameboard[row][19]==true){
+                            alive++;
+                        }
                     }
-
-
                     try {
 
                         if (gameboard[row + 1][column] == true) {
                             alive++;
-                        } else {
                         }
 
-                    }catch (Exception e) {
-
+                    } catch (Exception e) {
+                        if(gameboard[0][column]==true){
+                            alive++;
+                        }
                     }
 
                     try {
-                        if (gameboard[row - 1][column] == true) {
+                        if (gameboard[row - 1][column]==true) {
                             alive++;
-                        } else {
                         }
 
-                    }catch (Exception e) {
 
+                    } catch (Exception e) {
+                        if(gameboard[19][column]==true){
+                            alive++;
+                        }
                     }
 
-
-
-                    try{
+                    try {
                         if (gameboard[row - 1][column + 1] == true) {
                             alive++;
-                        } else {
-                        }
-                        if (gameboard[row - 1][column - 1] == true) {
-                            alive++;
-                        } else {
-                        }
-                        if (gameboard[row + 1][column - 1] == true) {
-                            alive++;
-                        } else {
-                        }
-                        if (gameboard[row + 1][column + 1] == true) {
-                            alive++;
-                        } else {
                         }
                     } catch (Exception e) {
+                       try {
+                           if (gameboard[row - 1][0] == true) {
+                               alive++;
+                           }
+                       }catch(Exception e1){
+                       }
+
                     }
+                    try{
+                         if (gameboard[row - 1][column - 1] == true) {
+                            alive++;
+                         }
+
+                    }catch(Exception e) {
+
+                        try {
+                            if (gameboard[row - 1][19] == true) {
+                                alive++;
+                            }
+                        }catch(Exception e1){
+                        }
+                    }
+
+                    try {
+                        if (gameboard[row + 1][column - 1] == true) {
+                            alive++;
+                        }
+                    }catch(Exception e) {
+                        try {
+                            if (gameboard[row + 1][19] == true) {
+                                alive++;
+                            }
+                        }catch(Exception e1){
+                        }
+                    }
+
+                    try{
+                        if (gameboard[row + 1][column + 1] == true) {
+                            alive++;
+                        }
+                    }catch (Exception e) {
+                        try {
+                            if (gameboard[row + 1][0] == true) {
+                                alive++;
+                            }
+                        }catch(Exception e1){
+                        }
+                    }
+
+
+
+
                     //Check the rules
                     if (gameboard[row][column] == false && alive == 3) {
                         gameboard2[row][column] = true;

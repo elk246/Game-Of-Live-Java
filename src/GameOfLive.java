@@ -27,6 +27,7 @@ public class GameOfLive{
                 Blinker newBlinker= new Blinker();
                 newBlinker.setAlive(gameboard);
                 newBlinker.printFirstGenGame(gameboard);
+                newBlinker.printGame();
 
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
