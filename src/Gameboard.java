@@ -9,11 +9,11 @@ public class Gameboard  {
     public void printFirstGenGame(Gameboard game){
 
         //Output for the first generation
-        for (int row = 0; row < gameboard.length -1; row++) {
+        for (int row = 0; row < gameboard.length; row++) {
 
             System.out.println("");
 
-            for (int column = 0; column < gameboard[row].length -1; column++) {
+            for (int column = 0; column < gameboard[row].length ; column++) {
 
                 if (gameboard[row][column] == true) {
                     System.out.print(" @ ");
@@ -33,7 +33,7 @@ public class Gameboard  {
         while (a == 0) {
 
 
-            Thread.sleep(200);
+            Thread.sleep(400);
             for (int row = 0; row <= gameboard.length -1  ; row++) {
 
                 System.out.println("");
@@ -41,15 +41,12 @@ public class Gameboard  {
                 for (int column = 0; column <= gameboard[row].length -1 ; column++) {
                     int alive = 0;
 
+                    //Ceck neigbours and the x wall
                     try {
-
-                        //Check neighbour (alive or dead?)// Count alive
                         if (gameboard[row][column + 1] == true) {
                             alive++;
                         }
-
                     } catch (Exception e) {
-
                         if(gameboard[row][0]== true){
                             alive++;
                         }
@@ -58,34 +55,31 @@ public class Gameboard  {
                         if (gameboard[row][column - 1] == true) {
                             alive++;
                         }
-
                     } catch (Exception e) {
-                        if(gameboard[row][19]==true){
+                        if (gameboard[row][gameboard.length-1] == true) {
                             alive++;
                         }
                     }
                     try {
-
                         if (gameboard[row + 1][column] == true) {
                             alive++;
                         }
-
                     } catch (Exception e) {
                         if(gameboard[0][column]==true){
                             alive++;
                         }
                     }
-
                     try {
                         if (gameboard[row - 1][column]==true) {
                             alive++;
                         }
-
-
                     } catch (Exception e) {
-                        if(gameboard[19][column]==true){
-                            alive++;
-                        }
+                       try{
+                           if(gameboard[gameboard.length -1][column]==true) {
+                           alive++;
+                            }
+                       }catch(Exception e1){
+                       }
                     }
 
                     try {
@@ -99,36 +93,31 @@ public class Gameboard  {
                            }
                        }catch(Exception e1){
                        }
-
                     }
                     try{
                          if (gameboard[row - 1][column - 1] == true) {
                             alive++;
                          }
-
                     }catch(Exception e) {
-
                         try {
-                            if (gameboard[row - 1][19] == true) {
+                            if (gameboard[row - 1][gameboard.length -1] == true) {
                                 alive++;
                             }
                         }catch(Exception e1){
                         }
                     }
-
                     try {
                         if (gameboard[row + 1][column - 1] == true) {
                             alive++;
                         }
                     }catch(Exception e) {
                         try {
-                            if (gameboard[row + 1][19] == true) {
+                            if (gameboard[row + 1][gameboard.length -1] == true) {
                                 alive++;
                             }
                         }catch(Exception e1){
                         }
                     }
-
                     try{
                         if (gameboard[row + 1][column + 1] == true) {
                             alive++;
@@ -141,10 +130,6 @@ public class Gameboard  {
                         }catch(Exception e1){
                         }
                     }
-
-
-
-
                     //Check the rules
                     if (gameboard[row][column] == false && alive == 3) {
                         gameboard2[row][column] = true;
