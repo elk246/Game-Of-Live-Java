@@ -1,6 +1,6 @@
-public class Glider extends Figure {
+public class Glider extends Gameboard {
 
-    public void setAlive(GameOfLive game) {
+    public void setAlive(Gameboard game) {
         game.setAlive(1,2);
         game.setAlive(2,3);
         game.setAlive(2,4);

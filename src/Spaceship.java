@@ -1,5 +1,5 @@
-public class Spaceship {
-    public void setAlive(GameOfLive game){
+public class Spaceship extends Gameboard {
+    public void setAlive(Gameboard game){
         game.setAlive(7,2);
         game.setAlive(5,2);
         game.setAlive(4,3);

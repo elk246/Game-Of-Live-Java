@@ -1,6 +1,6 @@
-public class Pulsar {
+public class Pulsar extends Gameboard {
 
-    public void setAlive(GameOfLive game){
+    public void setAlive(Gameboard game){
         game.setAlive(4,2);
         game.setAlive(2,4);
         game.setAlive(2,5);

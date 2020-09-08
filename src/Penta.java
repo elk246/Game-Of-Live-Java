@@ -1,6 +1,6 @@
-public class Penta {
+public class Penta extends Gameboard {
 
-    public void setAlive(GameOfLive game){
+    public void setAlive(Gameboard game){
 
         game.setAlive(4,9);
         game.setAlive(3,9);
