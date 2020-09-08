@@ -9,9 +9,10 @@ public class GameOfLive{
         Gameboard gameboard= new Gameboard();
 
         String Antwort;
+
         Scanner Scanner = new Scanner(System.in);
 
-        System.out.println("Welche Figur soll abgespielt werden?");
+        System.out.println("Choose the figure: ");
         System.out.println("Blinker - B");
         System.out.println("Toad - T");
         System.out.println("Beacon - Be");
@@ -26,7 +27,7 @@ public class GameOfLive{
                 Blinker newBlinker= new Blinker();
                 newBlinker.setAlive(gameboard);
                 newBlinker.printFirstGenGame(gameboard);
-                newBlinker.printGame();
+
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
                     Beacon newBeacon= new Beacon();

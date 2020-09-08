@@ -1,20 +1,21 @@
 public class Gameboard  {
 
-    private static boolean[][] Gameboard = new boolean[20][20];
-    private static boolean[][] Gameboard2 = new boolean[20][20];
+    private static boolean[][] gameboard = new boolean[20][20];
+    private static boolean[][] gameboard2 = new boolean[20][20];
 
     public void setAlive (int x, int y) {
-        Gameboard[x][y]=true;
+        gameboard[x][y]=true;
     }
     public void printFirstGenGame(Gameboard game){
 
-        for (int row = 0; row < Gameboard.length; row++) {
+        //Output for the first generation
+        for (int row = 0; row < gameboard.length -1; row++) {
 
             System.out.println("");
 
-            for (int column = 0; column < Gameboard[row].length; column++) {
+            for (int column = 0; column < gameboard[row].length -1; column++) {
 
-                if (Gameboard[row][column] == true) {
+                if (gameboard[row][column] == true) {
                     System.out.print(" @ ");
                 } else {
                     System.out.print(" . ");
@@ -31,89 +32,121 @@ public class Gameboard  {
 
         while (a == 0) {
 
+
             Thread.sleep(500);
-            for (int row = 0; row < Gameboard.length - 1; row++) {
+            for (int row = 0; row < gameboard.length -1  ; row++) {
 
                 System.out.println("");
 
-                for (int column = 0; column < Gameboard[row].length - 1; column++) {
+                for (int column = 0; column < gameboard[row].length -1 ; column++) {
                     int alive = 0;
+
                     try {
+
                         //Check neighbour (alive or dead?)// Count alive
-                        if (Gameboard[row][column + 1] == true) {
+                        if (gameboard[row][column + 1] == true) {
                             alive++;
                         } else {
                         }
-                        if (Gameboard[row][column - 1] == true) {
+
+                    }catch (Exception e){
+
+                    }
+
+                    try{
+
+                        if (gameboard[row][column - 1] == true) {
                             alive++;
                         } else {
                         }
-                        if (Gameboard[row + 1][column] == true) {
+
+                    }catch (Exception e) {
+
+                    }
+
+
+                    try {
+
+                        if (gameboard[row + 1][column] == true) {
                             alive++;
                         } else {
                         }
-                        if (Gameboard[row - 1][column] == true) {
+
+                    }catch (Exception e) {
+
+                    }
+
+                    try {
+                        if (gameboard[row - 1][column] == true) {
                             alive++;
                         } else {
                         }
-                        if (Gameboard[row - 1][column + 1] == true) {
+
+                    }catch (Exception e) {
+
+                    }
+
+
+
+                    try{
+                        if (gameboard[row - 1][column + 1] == true) {
                             alive++;
                         } else {
                         }
-                        if (Gameboard[row - 1][column - 1] == true) {
+                        if (gameboard[row - 1][column - 1] == true) {
                             alive++;
                         } else {
                         }
-                        if (Gameboard[row + 1][column - 1] == true) {
+                        if (gameboard[row + 1][column - 1] == true) {
                             alive++;
                         } else {
                         }
-                        if (Gameboard[row + 1][column + 1] == true) {
+                        if (gameboard[row + 1][column + 1] == true) {
                             alive++;
                         } else {
                         }
                     } catch (Exception e) {
-
                     }
                     //Check the rules
-                    if (Gameboard[row][column] == false && alive == 3) {
-                        Gameboard2[row][column] = true;
+                    if (gameboard[row][column] == false && alive == 3) {
+                        gameboard2[row][column] = true;
 
                     } else {
                     }
-                    if (Gameboard[row][column] == true && alive < 2) {
-                        Gameboard2[row][column] = false;
+                    if (gameboard[row][column] == true && alive < 2) {
+                        gameboard2[row][column] = false;
 
                     }
-                    if (Gameboard[row][column] == true && alive == 2 || alive == 3) {
-                        Gameboard2[row][column] = true;
+                    if (gameboard[row][column] == true && alive == 2 || alive == 3) {
+                        gameboard2[row][column] = true;
                     } else {
                     }
-                    if (Gameboard[row][column] == true && alive > 3) {
-                        Gameboard2[row][column] = false;
+                    if (gameboard[row][column] == true && alive > 3) {
+                        gameboard2[row][column] = false;
                     } else {
                     }
 
 
                     //Ceck the cell (alive or dead?)
-                    if (Gameboard2[row][column] == true) {
+                    if (gameboard2[row][column] == true) {
                         System.out.print(" @ ");
                     } else {
                         System.out.print(" . ");
                     }
                 }
             }
+
             System.out.println("");
 
 
-            // Cell output (alive or dead?)
-            for (int row = 0; row < Gameboard.length; row++) {
-                for (int column = 0; column < Gameboard[row].length; column++) {
+            // Set gameboard cells like gameboard cells
+            for (int row = 0; row < gameboard.length; row++) {
+                for (int column = 0; column < gameboard[row].length; column++) {
 
-                    if(Gameboard2[row][column]==true){
-                        Gameboard[row][column]=true;
-                    }else{
-                        Gameboard[row][column]=false;
+                    if (gameboard2[row][column] == true) {
+                        gameboard[row][column] = true;
+                    } else {
+                        gameboard[row][column] = false;
                     }
 
                 }
@@ -122,4 +155,6 @@ public class Gameboard  {
         }
     }
 }
+
+
 
