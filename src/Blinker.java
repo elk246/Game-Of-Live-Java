@@ -1,8 +1,8 @@
 public class Blinker extends Gameboard {
 
     public void setAlive(Gameboard game){
-        game.setAlive(0,7);
-        game.setAlive(0,8);
-        game.setAlive(0,6);
+        game.setAlive(0,1);
+        game.setAlive(0,2);
+        game.setAlive(0,3);
     }
 }
