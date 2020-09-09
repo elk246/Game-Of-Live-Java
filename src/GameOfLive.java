@@ -24,46 +24,75 @@ public class GameOfLive{
 
 
         if (Antwort.equals("B") || Antwort.equals("b")) {
-                Blinker newBlinker= new Blinker();
-                newBlinker.setAlive(gameboard);
-                newBlinker.printFirstGenGame(gameboard);
+
+            Blinker newBlinker = new Blinker();
+            newBlinker.setAlive(gameboard);
+            newBlinker.printFirstGenGame(gameboard);
+            while (true) {
+                newBlinker.checkgameboard();
                 newBlinker.printGame();
+                newBlinker.setgameboardnew();
+            }
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
                     Beacon newBeacon= new Beacon();
                     newBeacon.setAlive(gameboard);
                     newBeacon.printFirstGenGame(gameboard);
-                    newBeacon.printGame();
+                    while(true) {
+                        newBeacon.checkgameboard();
+                        newBeacon.printGame();
+                        newBeacon.setgameboardnew();
+                    }
             } else {
                 if (Antwort.equals("P") || Antwort.equals("p")) {
                         Pulsar newPulsar= new Pulsar();
                         newPulsar.setAlive(gameboard);
                         newPulsar.printFirstGenGame(gameboard);
-                        newPulsar.printGame();
+                        while(true) {
+                            newPulsar.checkgameboard();
+                            newPulsar.printGame();
+                            newPulsar.setgameboardnew();
+                        }
                 } else {
                     if (Antwort.equals("Pe") || Antwort.equals("pe")) {
                             Penta newPenta= new Penta();
                             newPenta.setAlive(gameboard);
                             newPenta.printFirstGenGame(gameboard);
-                            newPenta.printGame();
+                            while(true){
+                                newPenta.checkgameboard();
+                                newPenta.printGame();
+                                newPenta.setgameboardnew();
+                            }
                     } else {
                         if (Antwort.equals("T") || Antwort.equals("t")) {
                                 Toad newToad= new Toad();
                                 newToad.setAlive(gameboard);
                                 newToad.printFirstGenGame(gameboard);
-                                newToad.printGame();
+                                while(true) {
+                                    newToad.checkgameboard();
+                                    newToad.printGame();
+                                    newToad.setgameboardnew();
+                                }
                         } else {
                             if (Antwort.equals("G") || Antwort.equals("g")) {
                                 Glider newGlider= new Glider();
                                 newGlider.setAlive(gameboard);
                                 newGlider.printFirstGenGame(gameboard);
-                                newGlider.printGame();
+                                while(true){
+                                    newGlider.checkgameboard();
+                                    newGlider.printGame();
+                                    newGlider.setgameboardnew();
+                                }
                                 }else{
                                     if(Antwort.equals("S")|| Antwort.equals("s")) {
                                             Spaceship newSpaceship= new Spaceship();
                                             newSpaceship.setAlive(gameboard);
                                             newSpaceship.printFirstGenGame(gameboard);
-                                            newSpaceship.printGame();
+                                            while(true) {
+                                                newSpaceship.checkgameboard();
+                                                newSpaceship.printGame();
+                                                newSpaceship.setgameboardnew();
+                                            }
                                     }else{
                                     }
                                 }
