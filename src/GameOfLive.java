@@ -28,7 +28,6 @@ public class GameOfLive{
                 newBlinker.setAlive(gameboard);
                 newBlinker.printFirstGenGame(gameboard);
                 newBlinker.printGame();
-
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
                     Beacon newBeacon= new Beacon();
