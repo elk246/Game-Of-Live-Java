@@ -1,4 +1,4 @@
-public class Toad extends Gameboard {
+public class Toad extends Gameboard  {
 
     public void setAlive(Gameboard game){
         game.setAlive(8,7);

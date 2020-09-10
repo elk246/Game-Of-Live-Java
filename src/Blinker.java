@@ -4,6 +4,6 @@ public class Blinker extends Gameboard {
         game.setAlive(0,0);
         game.setAlive(19,0);
         game.setAlive(19,19);
-       game.setAlive(0,19);
+       game.setAlive(0,19 );
     }
 }

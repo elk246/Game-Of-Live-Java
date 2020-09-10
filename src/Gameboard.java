@@ -27,7 +27,6 @@ public class Gameboard {
 
     }
 
-
     public void checkgameboard() throws InterruptedException {
         for (int row = 0; row <= gameboard.length - 1; row++) {
 
@@ -45,6 +44,7 @@ public class Gameboard {
                         alive++;
                     }
                 }
+
                 // check left wall and check neighbour
                 try {
                     if (gameboard[row][column - 1]) {
@@ -55,6 +55,7 @@ public class Gameboard {
                         alive++;
                     }
                 }
+
                 //check below wall an neighbour
                 try {
                     if (gameboard[row + 1][column]) {
@@ -65,6 +66,7 @@ public class Gameboard {
                         alive++;
                     }
                 }
+
                 //check top wall and neighbour
                 try {
                     if (gameboard[row - 1][column]) {
@@ -83,12 +85,11 @@ public class Gameboard {
                     }
                 } catch (Exception e) {
                     //check right wall
-                    if (row == 0 && column > 0 && column <= gameboard[0].length - 1) {
+                    if (row == 0 && column >= 0 && column <= gameboard[0].length - 1) {
                         try {
                             if (gameboard[gameboard.length - 1][column + 1]) {
                                 alive++;
                             }
-
                         } catch (Exception e1) {
                         }
                     }
@@ -98,11 +99,10 @@ public class Gameboard {
                             alive++;
                         }
                     }
-
                 }
 
                 //check top wall
-                if (column == gameboard[0].length - 1 && row >= 0 && row <= gameboard.length - 1) {
+                if (column == gameboard[0].length - 1 && row > 0 && row <= gameboard.length - 1) {
                     try {
                         if (gameboard[row - 1][0]) {
                             alive++;
@@ -110,7 +110,6 @@ public class Gameboard {
                     }catch (Exception e){
                     }
                 }
-
 
                 //check neighbour left and below
                 try {

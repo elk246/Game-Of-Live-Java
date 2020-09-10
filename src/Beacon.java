@@ -1,4 +1,4 @@
-public class Beacon extends Gameboard {
+public class Beacon extends Gameboard  {
 
     public void setAlive(Gameboard game){
         game.setAlive(11,10);
