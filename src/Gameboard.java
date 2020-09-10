@@ -83,21 +83,34 @@ public class Gameboard {
                     }
                 } catch (Exception e) {
                     //check right wall
-                    if (row == 0 && column > 0 && column < gameboard[0].length - 1) {
+                    if (row == 0 && column > 0 && column <= gameboard[0].length - 1) {
                         try {
                             if (gameboard[gameboard.length - 1][column + 1]) {
                                 alive++;
                             }
+
                         } catch (Exception e1) {
                         }
                     }
-                    //check top wall
-                    if (column == gameboard[0].length - 1 && row > 0 && row < gameboard.length - 1) {
-                        if (gameboard[row - 1][0]) {
+                    //check the right edge top
+                    if (row == 0 && column == gameboard[0].length - 1) {
+                        if(gameboard[gameboard.length-1][0]){
                             alive++;
                         }
                     }
+
                 }
+
+                //check top wall
+                if (column == gameboard[0].length - 1 && row >= 0 && row <= gameboard.length - 1) {
+                    try {
+                        if (gameboard[row - 1][0]) {
+                            alive++;
+                        }
+                    }catch (Exception e){
+                    }
+                }
+
 
                 //check neighbour left and below
                 try {
@@ -106,39 +119,61 @@ public class Gameboard {
                     }
                 } catch (Exception e) {
                     //check top wall
-                    if (row == 0 && column > 0 && column < gameboard[0].length - 1) {
-                        if (gameboard[gameboard.length - 1][column - 1]) {
-                            alive++;
+                    if (row == 0 && column >= 0 && column <= gameboard[0].length - 1) {
+                        try {
+                            if (gameboard[gameboard.length - 1][column - 1]) {
+                                alive++;
+                            }
+                        }catch(Exception e1){
                         }
                     }
                     //check left wall
-                    if (column == 0 && row > 0 && row < gameboard.length - 1) {
-                        if (gameboard[row - 1][gameboard.length - 1]) {
+                    if (column == 0 && row >= 0 && row <= gameboard.length - 1) {
+                       try {
+                           if (gameboard[row - 1][gameboard.length - 1]) {
+                               alive++;
+                           }
+                       }catch(Exception e1){
+                       }
+                    }
+                    //check the left edge top
+                    if (row == 0 && column == 0) {
+                        if(gameboard[gameboard.length-1][gameboard.length-1]){
                             alive++;
                         }
                     }
                 }
 
 
-                //check neighbour right and top
+                //check neighbour left and top
                 try {
                     if (gameboard[row + 1][column - 1]) {
                         alive++;
                     }
                 } catch (Exception e) {
                     // check right wall
-                    if (row == gameboard.length - 1 && column > 0 && column < gameboard[0].length - 1) {
+                    if (row == gameboard.length - 1 && column > 0 && column <= gameboard[0].length - 1) {
                         if (gameboard[0][column - 1]) {
                             alive++;
                         }
                     }
                     //check below wall
-                    if (column == 0 && row > 0 && row < gameboard.length - 1) {
-                        if (gameboard[row + 1][gameboard.length - 1]) {
+                    if (column == 0 && row >= 0 && row <= gameboard.length - 1) {
+                        try {
+                            if (gameboard[row + 1][gameboard.length - 1]) {
+                                alive++;
+                            }
+                        }catch(Exception e1){
+                        }
+                    }
+                    //check the left edge below
+                    if (row == gameboard.length - 1 && column == 0) {
+                        if(gameboard[0][gameboard.length-1]){
                             alive++;
                         }
                     }
                 }
+
 
                 //check neighbour right and below
                 try {
@@ -147,18 +182,32 @@ public class Gameboard {
                     }
                 } catch (Exception e) {
                     //check below wall
-                    if (row == gameboard.length - 1 && column > 0 && column < gameboard[0].length - 1) {
-                        if (gameboard[0][column + 1]) {
-                            alive++;
+                    if (row == gameboard.length - 1 && column >= 0 && column <= gameboard[0].length - 1) {
+                        try {
+                            if (gameboard[0][column + 1]) {
+                                alive++;
+                            }
+                        }catch(Exception e1){
                         }
                     }
                     //check right wall
-                    if (column == gameboard[0].length - 1 && row > 0 && row < gameboard.length - 1) {
-                        if (gameboard[row + 1][0]) {
+                    if (column == gameboard[0].length - 1 && row >= 0 && row <= gameboard.length - 1) {
+                        try {
+                            if (gameboard[row + 1][0]) {
+                                alive++;
+                            }
+                        }catch(Exception e1){
+                        }
+                    }
+                    //check the edge right below
+                    if (row == gameboard.length - 1 && column == gameboard.length - 1) {
+                        if(gameboard[0][0]){
                             alive++;
                         }
                     }
                 }
+
+
                 //Check the rules
                 if (gameboard[row][column] && alive == 3) {
                     gameboard2[row][column] = true;
@@ -174,14 +223,17 @@ public class Gameboard {
                 if (gameboard[row][column] && alive > 3) {
                     gameboard2[row][column] = false;
                 }
+
             }
         }
     }
 
 
+
+
     public void printGame() throws InterruptedException {
 
-        Thread.sleep(400);
+        Thread.sleep(200);
 
         for (int row = 0; row <= gameboard.length - 1; row++) {
             System.out.println("");
@@ -202,7 +254,7 @@ public class Gameboard {
 
     public void setgameboardnew(){
 
-            // Set gameboard cells like gameboard cells
+            // Set gameboard cells like gameboard2 cells
                 for (int row = 0; row < gameboard.length; row++) {
                     for (int column = 0; column < gameboard[row].length; column++) {
 
