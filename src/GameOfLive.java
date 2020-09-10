@@ -33,6 +33,7 @@ public class GameOfLive{
                 newBlinker.printGame();
                 newBlinker.setgameboardnew();
             }
+
         } else {
             if (Antwort.equals("Be") || Antwort.equals("be")) {
                     Beacon newBeacon= new Beacon();
