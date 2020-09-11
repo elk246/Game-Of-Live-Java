@@ -2,9 +2,10 @@ import java.sql.SQLOutput;
 
 public class Gameboard {
 
-
     private static Cell[][] gameboardCell= new Cell[20][20];
     private static Cell[][] gameboardCell2= new Cell[20][20];
+    private static int [] rulesToAlive = {2, 3};
+    private static int [] rulesBorn = {3};
 
     // set cells for figure alive
     public void setAlive(int x, int y){
@@ -29,7 +30,6 @@ public class Gameboard {
             System.out.println("");
 
             for (int column = 0; column < gameboardCell[row].length; column++) {
-
 
                 if (gameboardCell[row][column].isAlive() == true) {
                     System.out.print(" @ ");
@@ -226,18 +226,22 @@ public class Gameboard {
 
 
                 //Check the rules
-                if (gameboardCell[row][column].isAlive() && alive == 3) {
+                if (gameboardCell[row][column].isAlive()==false && alive == rulesBorn[0]) {
                     gameboardCell2[row][column].setAlive(true);
 
                 }
-                if (gameboardCell[row][column].isAlive() && alive < 2) {
+                if (gameboardCell[row][column].isAlive()==true && alive < rulesToAlive[0]) {
                     gameboardCell2[row][column].setAlive(false);
 
                 }
-                if (gameboardCell[row][column].isAlive() && alive == 2 || alive == 3) {
+                if (gameboardCell[row][column].isAlive()==true && alive == rulesToAlive[0]) {
                     gameboardCell2[row][column].setAlive(true);
                 }
-                if (gameboardCell[row][column].isAlive() && alive > 3) {
+                if (gameboardCell[row][column].isAlive()==true && alive == rulesToAlive[1]) {
+                    gameboardCell2[row][column].setAlive(true);
+                }
+
+                if (gameboardCell[row][column].isAlive()==true && alive > rulesToAlive[1]) {
                     gameboardCell2[row][column].setAlive(false);
                 }
             }
@@ -256,7 +260,7 @@ public class Gameboard {
 
             for (int column = 0; column <= gameboardCell[row].length - 1; column++) {
 
-                //Ceck the cell (alive, dead or stone?)
+                //Ceck the cell (alive, dead?)
                 if (gameboardCell2[row][column].isAlive()) {
                     System.out.print(" @ ");
                 } else {

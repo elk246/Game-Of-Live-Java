@@ -10,6 +10,7 @@ public class GameOfLive {
 
         String Antwort;
 
+
         Scanner Scanner = new Scanner(System.in);
 
         System.out.println("Choose the figure: ");
@@ -20,6 +21,8 @@ public class GameOfLive {
         System.out.println("Pentadecathlon - Pe");
         System.out.println("Glider - G");
         System.out.println("Spaceship - S");
+        System.out.println("Swirl - Sw (runs only with 34/3 rules!");
+        System.out.println("Frog - F (runs only with 34/3 rules!");
         Antwort = Scanner.next();
 
 
@@ -119,6 +122,34 @@ public class GameOfLive {
                 spaceship.printGame();
                 spaceship.setgameboardnew();
             }
+        }
+
+        if(Antwort.equals("Sw") || Antwort.equals("sw")) {
+
+            gameboard.createGameboard();
+            Swirl swirl = new Swirl();
+            swirl.setAlive(gameboard);
+            gameboard.printGameboard();
+
+            while (true) {
+                swirl.checkgameboard();
+                swirl.printGame();
+                swirl.setgameboardnew();
+            }
+        }
+            if(Antwort.equals("F") || Antwort.equals("f")){
+
+                gameboard.createGameboard();
+                Frog frog= new Frog();
+                frog.setAlive(gameboard);
+                gameboard.printGameboard();
+
+                while( true ){
+                    frog.checkgameboard();
+                    frog.printGame();
+                    frog.setgameboardnew();
+                }
+
         }
     }
 }

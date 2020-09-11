@@ -1,19 +1,7 @@
 public class Cell {
 
    private boolean isAlive= false;
-   private int counter = 0;
-
-
-
-    public int getCounter() {
-        return counter;
-    }
-
-    public void setCounter(int counter) {
-        this.counter = counter;
-    }
-
-
+   private boolean isStone= false;
 
     //Getter
     public boolean isAlive() {
@@ -24,4 +12,18 @@ public class Cell {
     public void setAlive(boolean alive) {
         isAlive = alive;
     }
+
+
+
+    // getter stone
+    public boolean isStone() {
+        return isStone;
+    }
+
+    //setter stone
+    public void setStone(boolean stone) {
+        isStone = stone;
+    }
 }
+
+
