@@ -1,6 +1,6 @@
 public class Toad extends Gameboard  {
 
-    public void setAlive(Gameboard game){
+    public void setAlive(Gameboard game) {
         game.setAlive(8,7);
         game.setAlive(9,7);
         game.setAlive(10,8);
@@ -8,4 +8,6 @@ public class Toad extends Gameboard  {
         game.setAlive(9,10);
         game.setAlive(7,9);
     }
+
+
 }

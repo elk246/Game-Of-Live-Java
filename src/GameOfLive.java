@@ -2,11 +2,11 @@ import java.awt.font.ShapeGraphicAttribute;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class GameOfLive{
+public class GameOfLive {
 
-    public static  void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-        Gameboard gameboard= new Gameboard();
+        Gameboard gameboard = new Gameboard();
 
         String Antwort;
 
@@ -25,87 +25,109 @@ public class GameOfLive{
 
         if (Antwort.equals("B") || Antwort.equals("b")) {
 
-            Blinker newBlinker = new Blinker();
-            newBlinker.setAlive(gameboard);
-            newBlinker.printFirstGenGame(gameboard);
-            while (true) {
-                newBlinker.checkgameboard();
-                newBlinker.printGame();
-                newBlinker.setgameboardnew();
-            }
+            gameboard.createGameboard();
+            Blinker blinker = new Blinker();
+            blinker.setAlive(gameboard);
+            gameboard.printGameboard();
 
-        } else {
-            if (Antwort.equals("Be") || Antwort.equals("be")) {
-                    Beacon newBeacon= new Beacon();
-                    newBeacon.setAlive(gameboard);
-                    newBeacon.printFirstGenGame(gameboard);
-                    while(true) {
-                        newBeacon.checkgameboard();
-                        newBeacon.printGame();
-                        newBeacon.setgameboardnew();
-                    }
-            } else {
-                if (Antwort.equals("P") || Antwort.equals("p")) {
-                        Pulsar newPulsar= new Pulsar();
-                        newPulsar.setAlive(gameboard);
-                        newPulsar.printFirstGenGame(gameboard);
-                        while(true) {
-                            newPulsar.checkgameboard();
-                            newPulsar.printGame();
-                            newPulsar.setgameboardnew();
-                        }
-                } else {
-                    if (Antwort.equals("Pe") || Antwort.equals("pe")) {
-                            Penta newPenta= new Penta();
-                            newPenta.setAlive(gameboard);
-                            newPenta.printFirstGenGame(gameboard);
-                            while(true){
-                                newPenta.checkgameboard();
-                                newPenta.printGame();
-                                newPenta.setgameboardnew();
-                            }
-                    } else {
-                        if (Antwort.equals("T") || Antwort.equals("t")) {
-                                Toad newToad= new Toad();
-                                newToad.setAlive(gameboard);
-                                newToad.printFirstGenGame(gameboard);
-                                while(true) {
-                                    newToad.checkgameboard();
-                                    newToad.printGame();
-                                    newToad.setgameboardnew();
-                                }
-                        } else {
-                            if (Antwort.equals("G") || Antwort.equals("g")) {
-                                Glider newGlider= new Glider();
-                                newGlider.setAlive(gameboard);
-                                newGlider.printFirstGenGame(gameboard);
-                                while(true){
-                                    newGlider.checkgameboard();
-                                    newGlider.printGame();
-                                    newGlider.setgameboardnew();
-                                }
-                                }else{
-                                    if(Antwort.equals("S")|| Antwort.equals("s")) {
-                                            Spaceship newSpaceship= new Spaceship();
-                                            newSpaceship.setAlive(gameboard);
-                                            newSpaceship.printFirstGenGame(gameboard);
-                                            while(true) {
-                                                newSpaceship.checkgameboard();
-                                                newSpaceship.printGame();
-                                                newSpaceship.setgameboardnew();
-                                            }
-                                    }else{
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+            while (true) {
+                gameboard.checkgameboard();
+                gameboard.printGame();
+                gameboard.setgameboardnew();
             }
         }
 
+        if (Antwort.equals("Be") || Antwort.equals("be")) {
 
+            gameboard.createGameboard();
+            Beacon beacon = new Beacon();
+            beacon.setAlive(gameboard);
+            gameboard.printGameboard();
+
+            while (true) {
+                gameboard.checkgameboard();
+                gameboard.printGame();
+                gameboard.setgameboardnew();
+            }
+        }
+
+        if (Antwort.equals("P") || Antwort.equals("p")) {
+
+            gameboard.createGameboard();
+            Pulsar pulsar = new Pulsar();
+            pulsar.setAlive(gameboard);
+            gameboard.printGameboard();
+
+            while (true) {
+                pulsar.checkgameboard();
+                pulsar.printGame();
+                pulsar.setgameboardnew();
+            }
+        }
+
+        if (Antwort.equals("Pe") || Antwort.equals("pe")) {
+
+            gameboard.createGameboard();
+            Penta penta = new Penta();
+            penta.setAlive(gameboard);
+            gameboard.printGameboard();
+
+            while (true) {
+                penta.checkgameboard();
+                penta.printGame();
+                penta.setgameboardnew();
+            }
+        }
+
+        if (Antwort.equals("T") || Antwort.equals("t")) {
+
+            gameboard.createGameboard();
+            Toad toad = new Toad();
+            toad.setAlive(gameboard);
+            gameboard.printGameboard();
+
+            while (true) {
+                toad.checkgameboard();
+                toad.printGame();
+                toad.setgameboardnew();
+            }
+        }
+
+        if (Antwort.equals("G") || Antwort.equals("g")) {
+
+            gameboard.createGameboard();
+            Glider glider = new Glider();
+            glider.setAlive(gameboard);
+            gameboard.printGameboard();
+
+            while (true) {
+                glider.checkgameboard();
+                glider.printGame();
+                glider.setgameboardnew();
+            }
+        }
+
+        if (Antwort.equals("S") || Antwort.equals("s")) {
+
+            gameboard.createGameboard();
+            Spaceship spaceship = new Spaceship();
+            spaceship.setAlive(gameboard);
+            gameboard.printGameboard();
+
+            while (true) {
+                spaceship.checkgameboard();
+                spaceship.printGame();
+                spaceship.setgameboardnew();
+            }
+        }
+    }
 }
+
+
+
+
+
+
 
 
 

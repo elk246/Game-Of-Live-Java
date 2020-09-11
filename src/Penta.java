@@ -24,4 +24,6 @@ public class Penta extends Gameboard {
         game.setAlive(16,9);
         game.setAlive(17,9);
     }
+
+
 }

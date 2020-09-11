@@ -8,4 +8,6 @@ public class Beacon extends Gameboard  {
         game.setAlive(9,7);
         game.setAlive(9,8);
     }
+
+
 }

@@ -13,4 +13,6 @@ public class Glider extends Gameboard {
         game.setAlive(3,15);
         game.setAlive(4 ,15);
     }
+
+
 }
